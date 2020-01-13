@@ -1,0 +1,50 @@
+c:\Projects\GreetingsBot\GreetingsBot\bin\Bot Application1.dll.config
+c:\Projects\GreetingsBot\GreetingsBot\bin\Bot Application1.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Bot Application1.pdb
+c:\Projects\GreetingsBot\GreetingsBot\bin\Autofac.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Chronic.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.Bot.Builder.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.Bot.Connector.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.Rest.ClientRuntime.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.WindowsAzure.Configuration.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Newtonsoft.Json.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\System.IdentityModel.Tokens.Jwt.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\System.Net.Http.Formatting.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\System.Web.Http.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\System.Web.Http.WebHost.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Autofac.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.Bot.Builder.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.Bot.Connector.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.WindowsAzure.Configuration.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\Newtonsoft.Json.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\System.IdentityModel.Tokens.Jwt.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\System.Net.Http.Formatting.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\System.Web.Http.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\System.Web.Http.WebHost.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\ar\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\en\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\es\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\fa\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\fr\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\ja\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\ru\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\obj\Release\GreetingsBot.csprojResolveAssemblyReference.cache
+c:\Projects\GreetingsBot\GreetingsBot\obj\Release\Bot Application1.dll
+c:\Projects\GreetingsBot\GreetingsBot\obj\Release\Bot Application1.pdb
+C:\Projects\GreetingsBot\GreetingsBot\bin\EntityFramework.dll
+C:\Projects\GreetingsBot\GreetingsBot\bin\EntityFramework.SqlServer.dll
+C:\Projects\GreetingsBot\GreetingsBot\bin\RestSharp.dll
+C:\Projects\GreetingsBot\GreetingsBot\bin\Wit.ai.net.dll
+C:\Projects\GreetingsBot\GreetingsBot\bin\Wit.ai.net.pdb
+C:\Projects\GreetingsBot\GreetingsBot\bin\EntityFramework.xml
+C:\Projects\GreetingsBot\GreetingsBot\bin\EntityFramework.SqlServer.xml
+C:\Projects\GreetingsBot\GreetingsBot\bin\RestSharp.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.IdentityModel.Logging.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.IdentityModel.Tokens.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.IdentityModel.Logging.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\Microsoft.IdentityModel.Tokens.xml
+c:\Projects\GreetingsBot\GreetingsBot\bin\cs\Microsoft.Bot.Builder.resources.dll
+c:\Projects\GreetingsBot\GreetingsBot\bin\de-dE\Microsoft.Bot.Builder.resources.dll

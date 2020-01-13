@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GreetingsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Goodbye">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Greeting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Holiday_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Holiday" Relationship="GreetingsModel.FK_Greeting_Holiday" FromRole="Greeting" ToRole="Holiday" />
+    <NavigationProperty Name="GreetingRecipients" Relationship="GreetingsModel.FK_GreetingRecipient_Greeting" FromRole="Greeting" ToRole="GreetingRecipient" />
+  </EntityType>
+  <EntityType Name="Hello">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Goodbyes" EntityType="Self.Goodbye" />
+    <EntitySet Name="Greetings" EntityType="Self.Greeting" />
+    <EntitySet Name="Helloes" EntityType="Self.Hello" />
+    <EntitySet Name="GreetingRecipients" EntityType="GreetingsModel.GreetingRecipient" />
+    <EntitySet Name="Holidays" EntityType="GreetingsModel.Holiday" />
+    <EntitySet Name="Recipients" EntityType="GreetingsModel.Recipient" />
+    <AssociationSet Name="FK_Greeting_Holiday" Association="GreetingsModel.FK_Greeting_Holiday">
+      <End Role="Holiday" EntitySet="Holidays" />
+      <End Role="Greeting" EntitySet="Greetings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GreetingRecipient_Greeting" Association="GreetingsModel.FK_GreetingRecipient_Greeting">
+      <End Role="Greeting" EntitySet="Greetings" />
+      <End Role="GreetingRecipient" EntitySet="GreetingRecipients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GreetingRecipient_Recipient" Association="GreetingsModel.FK_GreetingRecipient_Recipient">
+      <End Role="Recipient" EntitySet="Recipients" />
+      <End Role="GreetingRecipient" EntitySet="GreetingRecipients" />
+    </AssociationSet>
+    <EntitySet Name="ThanksAnswers" EntityType="GreetingsModel.ThanksAnswer" />
+    <EntitySet Name="Howdies" EntityType="GreetingsModel.Howdy" />
+  </EntityContainer>
+  <EntityType Name="GreetingRecipient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Greeting_Id" Type="Int32" Nullable="false" />
+    <Property Name="Recipient_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Greeting" Relationship="GreetingsModel.FK_GreetingRecipient_Greeting" FromRole="GreetingRecipient" ToRole="Greeting" />
+    <NavigationProperty Name="Recipient" Relationship="GreetingsModel.FK_GreetingRecipient_Recipient" FromRole="GreetingRecipient" ToRole="Recipient" />
+  </EntityType>
+  <EntityType Name="Holiday">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Greetings" Relationship="GreetingsModel.FK_Greeting_Holiday" FromRole="Holiday" ToRole="Greeting" />
+  </EntityType>
+  <EntityType Name="Recipient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GreetingRecipients" Relationship="GreetingsModel.FK_GreetingRecipient_Recipient" FromRole="Recipient" ToRole="GreetingRecipient" />
+  </EntityType>
+  <Association Name="FK_Greeting_Holiday">
+    <End Type="GreetingsModel.Holiday" Role="Holiday" Multiplicity="1" />
+    <End Type="GreetingsModel.Greeting" Role="Greeting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Holiday">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Greeting">
+        <PropertyRef Name="Holiday_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GreetingRecipient_Greeting">
+    <End Type="GreetingsModel.Greeting" Role="Greeting" Multiplicity="1" />
+    <End Type="GreetingsModel.GreetingRecipient" Role="GreetingRecipient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Greeting">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GreetingRecipient">
+        <PropertyRef Name="Greeting_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GreetingRecipient_Recipient">
+    <End Type="GreetingsModel.Recipient" Role="Recipient" Multiplicity="1" />
+    <End Type="GreetingsModel.GreetingRecipient" Role="GreetingRecipient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GreetingRecipient">
+        <PropertyRef Name="Recipient_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ThanksAnswer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Howdy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

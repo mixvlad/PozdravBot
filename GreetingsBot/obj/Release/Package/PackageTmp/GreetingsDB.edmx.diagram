@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="009a600421694c05928a276fe5dbdef7" Name="Diagram1">
+        <EntityTypeShape EntityType="GreetingsModel.Goodbye" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreetingsModel.Greeting" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreetingsModel.Hello" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreetingsModel.GreetingRecipient" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="GreetingsModel.Holiday" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="GreetingsModel.Recipient" Width="1.5" PointX="3" PointY="6" />
+        <AssociationConnector Association="GreetingsModel.FK_Greeting_Holiday" />
+        <AssociationConnector Association="GreetingsModel.FK_GreetingRecipient_Greeting" />
+        <AssociationConnector Association="GreetingsModel.FK_GreetingRecipient_Recipient" />
+        <EntityTypeShape EntityType="GreetingsModel.ThanksAnswer" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="GreetingsModel.Howdy" Width="1.5" PointX="5.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

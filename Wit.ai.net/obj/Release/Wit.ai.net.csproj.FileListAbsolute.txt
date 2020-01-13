@@ -1,0 +1,9 @@
+C:\Projects\GreetingsBot\Wit.ai.net\bin\Release\Wit.ai.net.dll
+C:\Projects\GreetingsBot\Wit.ai.net\bin\Release\Wit.ai.net.pdb
+C:\Projects\GreetingsBot\Wit.ai.net\bin\Release\Newtonsoft.Json.dll
+C:\Projects\GreetingsBot\Wit.ai.net\bin\Release\RestSharp.dll
+C:\Projects\GreetingsBot\Wit.ai.net\bin\Release\Newtonsoft.Json.xml
+C:\Projects\GreetingsBot\Wit.ai.net\bin\Release\RestSharp.xml
+C:\Projects\GreetingsBot\Wit.ai.net\obj\Release\Wit.ai.net.csprojResolveAssemblyReference.cache
+C:\Projects\GreetingsBot\Wit.ai.net\obj\Release\Wit.ai.net.dll
+C:\Projects\GreetingsBot\Wit.ai.net\obj\Release\Wit.ai.net.pdb

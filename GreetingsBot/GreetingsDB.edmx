@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GreetingsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Goodbye">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Greeting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="text" Nullable="false" />
+          <Property Name="Holiday_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GreetingRecipient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Greeting_Id" Type="int" Nullable="false" />
+          <Property Name="Recipient_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hello">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Howdy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ThanksAnswer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Greeting_Holiday">
+          <End Role="Holiday" Type="Self.Holiday" Multiplicity="1" />
+          <End Role="Greeting" Type="Self.Greeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Holiday">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Greeting">
+              <PropertyRef Name="Holiday_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GreetingRecipient_Greeting">
+          <End Role="Greeting" Type="Self.Greeting" Multiplicity="1" />
+          <End Role="GreetingRecipient" Type="Self.GreetingRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Greeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GreetingRecipient">
+              <PropertyRef Name="Greeting_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GreetingRecipient_Recipient">
+          <End Role="Recipient" Type="Self.Recipient" Multiplicity="1" />
+          <End Role="GreetingRecipient" Type="Self.GreetingRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GreetingRecipient">
+              <PropertyRef Name="Recipient_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GreetingsModelStoreContainer">
+          <EntitySet Name="Goodbye" EntityType="Self.Goodbye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Greeting" EntityType="Self.Greeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GreetingRecipient" EntityType="Self.GreetingRecipient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hello" EntityType="Self.Hello" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Howdy" EntityType="Self.Howdy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipient" EntityType="Self.Recipient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThanksAnswer" EntityType="Self.ThanksAnswer" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Greeting_Holiday" Association="Self.FK_Greeting_Holiday">
+            <End Role="Holiday" EntitySet="Holiday" />
+            <End Role="Greeting" EntitySet="Greeting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GreetingRecipient_Greeting" Association="Self.FK_GreetingRecipient_Greeting">
+            <End Role="Greeting" EntitySet="Greeting" />
+            <End Role="GreetingRecipient" EntitySet="GreetingRecipient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GreetingRecipient_Recipient" Association="Self.FK_GreetingRecipient_Recipient">
+            <End Role="Recipient" EntitySet="Recipient" />
+            <End Role="GreetingRecipient" EntitySet="GreetingRecipient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GreetingsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Goodbye">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Greeting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Holiday_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Holiday" Relationship="GreetingsModel.FK_Greeting_Holiday" FromRole="Greeting" ToRole="Holiday" />
+          <NavigationProperty Name="GreetingRecipients" Relationship="GreetingsModel.FK_GreetingRecipient_Greeting" FromRole="Greeting" ToRole="GreetingRecipient" />
+        </EntityType>
+        <EntityType Name="Hello">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Goodbyes" EntityType="Self.Goodbye" />
+          <EntitySet Name="Greetings" EntityType="Self.Greeting" />
+          <EntitySet Name="Helloes" EntityType="Self.Hello" />
+          <EntitySet Name="GreetingRecipients" EntityType="GreetingsModel.GreetingRecipient" />
+          <EntitySet Name="Holidays" EntityType="GreetingsModel.Holiday" />
+          <EntitySet Name="Recipients" EntityType="GreetingsModel.Recipient" />
+          <AssociationSet Name="FK_Greeting_Holiday" Association="GreetingsModel.FK_Greeting_Holiday">
+            <End Role="Holiday" EntitySet="Holidays" />
+            <End Role="Greeting" EntitySet="Greetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GreetingRecipient_Greeting" Association="GreetingsModel.FK_GreetingRecipient_Greeting">
+            <End Role="Greeting" EntitySet="Greetings" />
+            <End Role="GreetingRecipient" EntitySet="GreetingRecipients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GreetingRecipient_Recipient" Association="GreetingsModel.FK_GreetingRecipient_Recipient">
+            <End Role="Recipient" EntitySet="Recipients" />
+            <End Role="GreetingRecipient" EntitySet="GreetingRecipients" />
+          </AssociationSet>
+          <EntitySet Name="ThanksAnswers" EntityType="GreetingsModel.ThanksAnswer" />
+          <EntitySet Name="Howdies" EntityType="GreetingsModel.Howdy" />
+        </EntityContainer>
+        <EntityType Name="GreetingRecipient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Greeting_Id" Type="Int32" Nullable="false" />
+          <Property Name="Recipient_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Greeting" Relationship="GreetingsModel.FK_GreetingRecipient_Greeting" FromRole="GreetingRecipient" ToRole="Greeting" />
+          <NavigationProperty Name="Recipient" Relationship="GreetingsModel.FK_GreetingRecipient_Recipient" FromRole="GreetingRecipient" ToRole="Recipient" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Greetings" Relationship="GreetingsModel.FK_Greeting_Holiday" FromRole="Holiday" ToRole="Greeting" />
+        </EntityType>
+        <EntityType Name="Recipient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GreetingRecipients" Relationship="GreetingsModel.FK_GreetingRecipient_Recipient" FromRole="Recipient" ToRole="GreetingRecipient" />
+        </EntityType>
+        <Association Name="FK_Greeting_Holiday">
+          <End Type="GreetingsModel.Holiday" Role="Holiday" Multiplicity="1" />
+          <End Type="GreetingsModel.Greeting" Role="Greeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Holiday">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Greeting">
+              <PropertyRef Name="Holiday_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GreetingRecipient_Greeting">
+          <End Type="GreetingsModel.Greeting" Role="Greeting" Multiplicity="1" />
+          <End Type="GreetingsModel.GreetingRecipient" Role="GreetingRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Greeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GreetingRecipient">
+              <PropertyRef Name="Greeting_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GreetingRecipient_Recipient">
+          <End Type="GreetingsModel.Recipient" Role="Recipient" Multiplicity="1" />
+          <End Type="GreetingsModel.GreetingRecipient" Role="GreetingRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GreetingRecipient">
+              <PropertyRef Name="Recipient_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ThanksAnswer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Howdy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GreetingsModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Goodbyes">
+            <EntityTypeMapping TypeName="GreetingsModel.Goodbye">
+              <MappingFragment StoreEntitySet="Goodbye">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Greetings">
+            <EntityTypeMapping TypeName="GreetingsModel.Greeting">
+              <MappingFragment StoreEntitySet="Greeting">
+                <ScalarProperty Name="Holiday_Id" ColumnName="Holiday_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Helloes">
+            <EntityTypeMapping TypeName="GreetingsModel.Hello">
+              <MappingFragment StoreEntitySet="Hello">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GreetingRecipients">
+            <EntityTypeMapping TypeName="GreetingsModel.GreetingRecipient">
+              <MappingFragment StoreEntitySet="GreetingRecipient">
+                <ScalarProperty Name="Recipient_Id" ColumnName="Recipient_Id" />
+                <ScalarProperty Name="Greeting_Id" ColumnName="Greeting_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holidays">
+            <EntityTypeMapping TypeName="GreetingsModel.Holiday">
+              <MappingFragment StoreEntitySet="Holiday">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipients">
+            <EntityTypeMapping TypeName="GreetingsModel.Recipient">
+              <MappingFragment StoreEntitySet="Recipient">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThanksAnswers">
+            <EntityTypeMapping TypeName="GreetingsModel.ThanksAnswer">
+              <MappingFragment StoreEntitySet="ThanksAnswer">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Howdies">
+            <EntityTypeMapping TypeName="GreetingsModel.Howdy">
+              <MappingFragment StoreEntitySet="Howdy">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

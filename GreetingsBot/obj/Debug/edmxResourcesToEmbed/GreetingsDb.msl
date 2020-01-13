@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GreetingsModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Goodbyes">
+      <EntityTypeMapping TypeName="GreetingsModel.Goodbye">
+        <MappingFragment StoreEntitySet="Goodbye">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Greetings">
+      <EntityTypeMapping TypeName="GreetingsModel.Greeting">
+        <MappingFragment StoreEntitySet="Greeting">
+          <ScalarProperty Name="Holiday_Id" ColumnName="Holiday_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Helloes">
+      <EntityTypeMapping TypeName="GreetingsModel.Hello">
+        <MappingFragment StoreEntitySet="Hello">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GreetingRecipients">
+      <EntityTypeMapping TypeName="GreetingsModel.GreetingRecipient">
+        <MappingFragment StoreEntitySet="GreetingRecipient">
+          <ScalarProperty Name="Recipient_Id" ColumnName="Recipient_Id" />
+          <ScalarProperty Name="Greeting_Id" ColumnName="Greeting_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Holidays">
+      <EntityTypeMapping TypeName="GreetingsModel.Holiday">
+        <MappingFragment StoreEntitySet="Holiday">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipients">
+      <EntityTypeMapping TypeName="GreetingsModel.Recipient">
+        <MappingFragment StoreEntitySet="Recipient">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanksAnswers">
+      <EntityTypeMapping TypeName="GreetingsModel.ThanksAnswer">
+        <MappingFragment StoreEntitySet="ThanksAnswer">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Howdies">
+      <EntityTypeMapping TypeName="GreetingsModel.Howdy">
+        <MappingFragment StoreEntitySet="Howdy">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

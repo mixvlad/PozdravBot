@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GreetingsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Goodbye">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Greeting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="text" Nullable="false" />
+    <Property Name="Holiday_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GreetingRecipient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Greeting_Id" Type="int" Nullable="false" />
+    <Property Name="Recipient_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hello">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Holiday">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Howdy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recipient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThanksAnswer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Greeting_Holiday">
+    <End Role="Holiday" Type="Self.Holiday" Multiplicity="1" />
+    <End Role="Greeting" Type="Self.Greeting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Holiday">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Greeting">
+        <PropertyRef Name="Holiday_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GreetingRecipient_Greeting">
+    <End Role="Greeting" Type="Self.Greeting" Multiplicity="1" />
+    <End Role="GreetingRecipient" Type="Self.GreetingRecipient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Greeting">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GreetingRecipient">
+        <PropertyRef Name="Greeting_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GreetingRecipient_Recipient">
+    <End Role="Recipient" Type="Self.Recipient" Multiplicity="1" />
+    <End Role="GreetingRecipient" Type="Self.GreetingRecipient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GreetingRecipient">
+        <PropertyRef Name="Recipient_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GreetingsModelStoreContainer">
+    <EntitySet Name="Goodbye" EntityType="Self.Goodbye" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Greeting" EntityType="Self.Greeting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GreetingRecipient" EntityType="Self.GreetingRecipient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hello" EntityType="Self.Hello" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Howdy" EntityType="Self.Howdy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipient" EntityType="Self.Recipient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThanksAnswer" EntityType="Self.ThanksAnswer" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Greeting_Holiday" Association="Self.FK_Greeting_Holiday">
+      <End Role="Holiday" EntitySet="Holiday" />
+      <End Role="Greeting" EntitySet="Greeting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GreetingRecipient_Greeting" Association="Self.FK_GreetingRecipient_Greeting">
+      <End Role="Greeting" EntitySet="Greeting" />
+      <End Role="GreetingRecipient" EntitySet="GreetingRecipient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GreetingRecipient_Recipient" Association="Self.FK_GreetingRecipient_Recipient">
+      <End Role="Recipient" EntitySet="Recipient" />
+      <End Role="GreetingRecipient" EntitySet="GreetingRecipient" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
